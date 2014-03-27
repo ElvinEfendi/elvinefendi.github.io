@@ -3,12 +3,13 @@ layout: post
 title: "run your tests fast with spork"
 date: 2012-03-22 12:40
 comments: true
-categories: spork rspec rails
+tags: spork rspec rails
 ---
 Running tests sometimes may take long time. In the post I'll explain how to reduce the time spent to run tests.
 For this purpose there is a nice tool called spork. Spork forks a copy of the server each time you run your tests.
 To use spork in your Rails application first you should add it to your Gemfile: 
-``` ruby Gemfile
+
+{% highlight ruby %}
 ...
 
 group :test do
@@ -18,17 +19,18 @@ group :test do
 end
 
 ...
-```
+{% endhighlight %}
+
 Or certainly you can use gem install command as well.
-<!--more-->
 Then run bundle install. After installing the gem you should configure it. In this post I will show configuration with rspec,
 therefor you should have rspec among your gems. To configure spork with rspec run the following command(you should be in your application main directory).
-``` ruby
+
+{% highlight ruby %}
 spork rspec --bootstrap
-```
+{% endhighlight %}
 
 Now your app's spec_helper.rb file should be as following:
-``` ruby
+{% highlight ruby %}
 require 'rubygems'
 require 'spork'
 #uncomment the following line to use spork with the debugger
@@ -81,11 +83,11 @@ end
 
 end
 
-```
+{% endhighlight %}
 
 Then read all the instructions. As noted in instructions we should move all appropriate loading to spork each block. So our new spec_helper.rb file
 should be as below:
-``` ruby spec_helper.rb
+{% highlight ruby %}
 require 'rubygems'
 require 'spork'
 #uncomment the following line to use spork with the debugger
@@ -136,7 +138,6 @@ Spork.each_run do
   # This code will be run each time you run your specs.
 
 end
+{% endhighlight %}
 
-```
-
-Now start your spork server vie spork command and it will let you run your rspec tests faster by providing --drb command : rspec --drb spec/
+Now start your spork server via spork command and it will let you run your rspec tests faster by providing --drb command : rspec --drb spec/

@@ -3,8 +3,9 @@ layout: post
 title: "added new features to the mongoid history gem"
 date: 2012-06-23 14:56
 comments: true
-categories: [mongoid, mongoid_history, gem, ruby, rails, track refenreced models, group history tracks]
+tags: [mongoid, mongoid_history, gem, ruby, rails, track refenreced models, group history tracks]
 ---
+
 Nowadays I work on a SaaS application. We develop using RoR and MongoDB. As an ODM we use Mongoid.
 About two weeks ago I had a requirement to track all changes to an object and show this changes in groups. To solve this problem
 I chose mongoid_history gem developed by [@dblock](http://twitter.com/#!/dblockdotorg). It is a cool gem. 

@@ -3,7 +3,7 @@ layout: post
 title: "Started to write blog"
 date: 2012-03-05 17:25
 comments: true
-categories: blog
+tags: blog
 ---
 
 About three weeks ago I decided to start writing blog. But I could start it just by today. This is my first blog and the post is first blog post. 
