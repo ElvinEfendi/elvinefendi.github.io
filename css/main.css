@@ -10,8 +10,6 @@
   padding: 0;
 }
 
-html, body { height: 100%; }
-
 body {
   background-color: #FFF;
   font: 13.34px Helvetica, Arial, sans-serif;
@@ -58,9 +56,11 @@ a:visited { color: #a0a; }
 .site {
   font-size: 115%;
   text-align: justify;
-  width: 42em;
+  width: 44em;
   margin: 3em auto 2em;
   line-height: 1.5em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .h-line {
