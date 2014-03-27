@@ -63,14 +63,22 @@ a:visited { color: #a0a; }
   line-height: 1.5em;
 }
 
+.h-line {
+  clear: both; 
+  border-top: 4px solid #eee;
+}
+
 .header a {
   font-weight: bold;
   text-decoration: none;
 }
 
+.header .navigation {
+  float: right;
+}
+
 .title {
-  display: inline-block;
-  margin-bottom: 2em;
+  float: left;
 }
 
 .title a {
