@@ -4,7 +4,19 @@ title: Your New Jekyll Site
 ---
 
 <div id="home">
-  <h1>Blog Posts</h1>
+  <h1>Welcome to my personal page</h1>
+  <p>
+    I am a software developer passionate about science, entrepreneurship, startups, new technologies and cooking.
+    During past several years I've been mostly doing web development using Ruby on Rails and related technologies.
+    Currently I pursue master's degree at The University of Bonn, Computer Science department. My main focus in
+    the university is Intelligent Systems(Machine Learning, Data Mining). I've done several consulting jobs for companies
+    from USA, India and Azerbaijan. Currently I work as a Ruby on Rails developer at <a href="http://www.fitogram.de/de/about">fitogram</a>
+    - a started based on Cologne, Germany. For more information check out my <a href="/resume">resume</a>. You can find 
+    detailed information about some of my projects in <a href="/portfolio">portfolio</a> and read my articles at
+    <a href="/blog">blog</a>
+  </p>
+  <br />
+  <h1>Latest Blog Posts</h1>
   <ul class="posts">
     {% for post in site.posts %}
       <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
