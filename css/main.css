@@ -148,6 +148,10 @@ a:visited { color: #a0a; }
   padding: 0 .4em;
 }
 
+.post .highlight pre {
+  overflow: auto;
+}
+
 .post ul, .post ol {
   margin-left: 1.35em;
 }
