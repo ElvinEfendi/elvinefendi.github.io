@@ -1,9 +1,0 @@
-  return 'AA' if count == 0 # if the collection is empty then return 'AA'
-  last_code = desc(:code).first.code.to_s
-  raise CodeNoUniqueValueError if last_code == 'ZZ'
-  # here is how the transition done without using if statement
-  last_code[0] = (last_code[0].ord + last_code[1].ord / 90).chr # if second letter is 'Z' then assign 'A' othervise increment it
-  last_code[1] = ((last_code[1].ord - 64) % 26 + 65 ).chr # if second letter back to 'A' from 'Z' then increment first letter
-
-  last_code
-
