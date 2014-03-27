@@ -10,7 +10,7 @@ title: Blog Posts
       <li>
         <span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
 	<p class="excerpt">{{ post.excerpt | remove: '<p>' | remove: '</p>' }} 
-	<a href="{{ post.url }}">read more</a></p>
+	<a style="float: right" href="{{ post.url }}">read more</a></p>
       </li>
     {% endfor %}
   </ul>
