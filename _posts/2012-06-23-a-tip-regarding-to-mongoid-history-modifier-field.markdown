@@ -2,6 +2,7 @@
 layout: post
 title:  "a tip regarding to mongoid history modifier field"
 date:   2012-06-23 16:35
+comments: true
 tags: [mongoid history, mongoid, rails, modifier field does not get set]
 ---
 

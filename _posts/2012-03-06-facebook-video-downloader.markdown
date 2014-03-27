@@ -2,6 +2,7 @@
 layout: post
 title: "facebook video downloader"
 date: 2012-03-06 15:51
+comments: true
 tags: facebook video python
 ---
 
