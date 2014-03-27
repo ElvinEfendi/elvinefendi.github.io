@@ -17,7 +17,8 @@ then I'll show how to use newly added features and after that I hope the importa
 Suppose, we have three models, called Company, Employee, Equipment. Let's define these models:
 Note: I will miss unnecessary parts of models(unnecessary for my demo purpose).
 
-```ruby Company model
+Company model
+{% highlight ruby %}
 class Company
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -36,9 +37,9 @@ class Company
   track_history track_create: true,
                 track_destroy: true
 end
-```
-<!-- more -->
-```ruby Employee model
+{% endhighlight %}
+Employee model
+{% highlight ruby %}
 class Employee
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -54,9 +55,9 @@ class Employee
                 track_destroy: true
 
 end
-```
-
-```ruby Equipment model
+{% endhighlight %}
+Equipment model
+{% highlight ruby %}
 class Equipment
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -72,7 +73,8 @@ class Equipment
                 track_destroy: true
 
 end
-```
+{% endhighlight %}
+
 And suppose we are going to create, update, delete an employee, and an equipment inside the company form as a nested attributes.
 In this case, if we let's say update an employee of the company then when we call company.history_tracks 
 we will not get any changes or history track. This is because mongoid history gem fetches history tracks against association chain and 
@@ -92,7 +94,7 @@ current timestamp with a minute precision. It means in this case if you call com
 history tracks by the timestamp they created. Like when you do some actions in one minute they will be groupped together and the actions in
 another minute will be groupped in another group.
 So as a summary these are the three methods I've added to the gem
-```ruby
+{% highlight ruby %}
 # to define groupping define this method inside wrapper controller(in the example Companies controller)
 def history_group_id
   params[:group_history_by]
@@ -111,6 +113,6 @@ company.groupped_history_tracks(wrapper=nil, group_by_key='history_group_id')
 # add following liine to your gem file and rune bundle install
 gem 'mongoid-history', git: 'git://github.com/ElvinEfendi/mongoid-history.git'
 
-```
+{% endhighlight %}
 
 [Github url of my fork(url for extended mongoid_history gem)](https://github.com/ElvinEfendi/mongoid-history)
