@@ -69,6 +69,10 @@ a:visited { color: #a0a; }
   padding-right: 1em;
 }
 
+img {
+  max-width: 44em;
+}
+
 .h-line {
   clear: both; 
   border-top: 4px solid #eee;
