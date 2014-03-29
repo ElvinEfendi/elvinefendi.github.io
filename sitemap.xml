@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://www.elvinefendi.com/</loc>
+  <lastmod>2014-03-29T06:19:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.elvinefendi.com/resume.html</loc>
+  <lastmod>2014-03-29T06:19:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.elvinefendi.com/portfolio.html</loc>
+  <lastmod>2014-03-29T06:19:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.elvinefendi.com/blog.html</loc>
+  <lastmod>2014-03-29T06:19:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.elvinefendi.com/2012/06/23/a-tip-regarding-to-mongoid-history-modifier-field.html</loc>
+  <lastmod>2014-03-29T06:19:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.elvinefendi.com/2012/06/23/added-new-features-to-the-mongoid-history-gem.html</loc>
+  <lastmod>2014-03-29T06:19:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.elvinefendi.com/2012/03/26/autoincrementing-two-charachter-word-without-if-statement.html</loc>
+  <lastmod>2014-03-29T06:19:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.elvinefendi.com/2012/03/22/run-your-tests-fast-with-spork.html</loc>
+  <lastmod>2014-03-29T06:19:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.elvinefendi.com/2012/03/13/authentication-and-authorisation-in-rails-with-devise-and-cancan.html</loc>
+  <lastmod>2014-03-29T06:19:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.elvinefendi.com/2012/03/06/meta-programming-in-ruby.html</loc>
+  <lastmod>2014-03-29T06:19:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.elvinefendi.com/2012/03/06/facebook-video-downloader.html</loc>
+  <lastmod>2014-03-29T06:19:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.elvinefendi.com/2012/03/05/started-to-write-blog.html</loc>
+  <lastmod>2014-03-29T06:19:44+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>
