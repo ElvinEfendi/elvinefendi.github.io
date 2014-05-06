@@ -1,21 +1,65 @@
 ---
 layout: post
-title: "coursework: parsing and indexing Wikipedia articles"
-date: 2014-05-06 12:50
+title: "facebook video downloader"
+date: 2012-03-06 15:51
 comments: true
-tags: java, wikipedia, apache lucene, information retrieval
+tags: facebook video python
 ---
 
-In last winter semester I took Information Retrieval course in the university. During the course we have implemented several projects.
-One of them was to use [Apache Lucene](http://lucene.apache.org/core/) to index, rank and query Wikipedia articles.
-A small example of Wikipedia data can be found [here](http://en.wikipedia.org/wiki/Wikipedia:Database_download#English-language_Wikipedia).
-The application consists of four main modules:
- - Indexer: this module handles indexing documents
- - Parser: this module parses the XML data file, creates documents(Page object) and send it to Indexer for indexing
- - Searcher: this module handles searching i.e querying
- - WikipediaRetriever: this is a wrapper module for all functionalities. You should run this module if you want to use provided functionalities of the program. After running this module you will have 2 options: first one is indexing the data and the second option is to query in already created index.
+Small Python script to download videos from Facebook.
 
-[Click to see the source code of the application](https://github.com/ElvinEfendi/wikipedia-retrieval)
+{% highlight ruby %}
+import urllib
+import urllib2
 
-In the repository I've also put ready Lucene index to the folder called "small_lucene_index". One can give path to this folder as an argument to
-the program and to search.
+email = "facebook email"
+passw = "facebook pass"
+
+home_url = "http://facebook.com"
+login_url = "https://www.facebook.com/login.php?login_attempt=1"
+video_page_url = "facebook video url" # ex: http://www.facebook.com/video/video.php?v=1636906955426
+
+send_data = None
+headers = {"User-Agent":"Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7) Gecko/20040803 Firefox/0.9.3"}
+client_host = "127.0.0.1"
+
+o = urllib2.build_opener(urllib2.HTTPCookieProcessor())
+urllib2.install_opener(o);
+
+request = urllib2.Request(home_url, send_data, headers, client_host)
+response = urllib2.urlopen(request)
+home_content = response.read()
+start = home_content.find("lsd") + 12
+finish = start + 5
+lsd = home_content[start:finish]
+
+send_data = {"charset_test":"&euro;,&acute;,€,´,水,Д,Є",
+             "lsd":lsd, "locale":"en_US", "email":email,
+             "pass":passw, "persistent":"1", "default_persistent":"0"}
+send_data = urllib.urlencode(send_data)
+
+request = urllib2.Request(login_url, send_data, headers, client_host)
+response = urllib2.urlopen(request)
+
+# get source
+request = urllib2.Request(video_page_url, None, headers, client_host)
+response = urllib2.urlopen(request)
+video_page_source = response.read()
+
+# parse url
+start_key = "\"video_src\","
+finish_key = "\");"
+start = video_page_source.find(start_key) + 14
+finish = video_page_source.find(finish_key, start + 2)
+encoded_url = video_page_source[start:finish]
+
+url = r'' + encoded_url
+url = url.replace("\\","")
+url = url.replace("u00253A",":")
+url = url.replace("u00252F","/")
+url = url.replace("u00253F","?")
+url = url.replace("u00253D","=")
+url = url.replace("u002526","&")
+
+print 'url=' + url
+{% endhighlight %}
