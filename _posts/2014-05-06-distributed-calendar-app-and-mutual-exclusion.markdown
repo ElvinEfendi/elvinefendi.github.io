@@ -12,7 +12,8 @@ was that all appointments should be syncronized among the machines in the node a
 Moreover it required us to write the same project in two different programming languages and user should be able to join to the network
 using calendar app implemented in different languages. I've chosen Java and Ruby and used [XML RPC](http://en.wikipedia.org/wiki/XML-RPC) 
 to connect the nodes in the network. To avoid collisions such as editing an appointment at the same time I've implemented Token Ring and
-Ricart agrawala mutual exclusion algorithms. Before running the application it is possible to set the mutual exclusion algorithm to on the those.
+Ricart agrawala [mutual exclusion](http://en.wikipedia.org/wiki/Mutual_exclusion) algorithms. 
+Before running the application it is possible to set the mutual exclusion algorithm.
 I've published the code for both languages in github: [Ruby](https://github.com/ElvinEfendi/distributed-calendar-app-ruby) and
 [Java](https://github.com/ElvinEfendi/distributed-calendar-app-java)
 
