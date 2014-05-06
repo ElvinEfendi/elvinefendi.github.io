@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "distributed calendar app in Java and Ruby using Token Ring and Ricart Agrawala algorithms for mutual exclusion"
-date:   2012-06-23 16:35
+title:  "distributed calendar app in Java and Ruby"
+date:   2014-05-06 11:00
 comments: true
 tags: [distributed systems, java, ruby, ricart agrawala, mutual exclusion, token ring, xml rpc]
 ---
