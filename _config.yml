@@ -1,3 +1,5 @@
 name: Elvin Efendi's personal website
 markdown: kramdown
 highlighter: rouge
+kramdown:
+  input: GFM
