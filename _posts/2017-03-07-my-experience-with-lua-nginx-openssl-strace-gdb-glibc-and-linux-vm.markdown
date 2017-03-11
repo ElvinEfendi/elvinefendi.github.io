@@ -6,12 +6,14 @@ comments: true
 tags: java, wikipedia, apache lucene, information retrieval
 ---
 
+**tldr;** A memory trick in [lua-nginx-module](https://github.com/openresty/lua-nginx-module/blob/37e5362088bd659e318aae568b268719bd0d6707/src/ngx_http_lua_module.c#L1294) leads to redundant large memory allocation.
+
 Recently I made one line Nginx configuration change and it resulted in Out of Memory(OOM) Killer killing the Nginx process before it completed loading the new configuration. Here's the line added to the configuration file:
 ```
 lua_ssl_trusted_certificate /etc/ssl/certs/ca-certificates.crt;
 ```
 
-In this post, I'm going to explain how I tracked down the root cause of the issue and document which tools I used and what I learnt during the process chronologically.
+In this post, I'm going to explain how I tracked down the root cause of the issue and document which tools I used and what I learnt during the process chronologically. The post will be a bit of everything.
 Before going any further here are the details of the software stack I used:
 
  - Openssl version: `1.0.2j`
