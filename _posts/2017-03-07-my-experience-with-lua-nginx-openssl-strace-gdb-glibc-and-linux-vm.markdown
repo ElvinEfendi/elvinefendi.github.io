@@ -3,7 +3,7 @@ layout: post
 title: "fun with lua-nginx-module, openssl, strace, gdb, glibc and Linux VM"
 date: 2017-03-07 12:50
 comments: true
-tags: java, wikipedia, apache lucene, information retrieval
+tags: lua, nginx, gdb, openssl, strace
 ---
 
 **tldr;** A memory trick in [lua-nginx-module](https://github.com/openresty/lua-nginx-module/blob/37e5362088bd659e318aae568b268719bd0d6707/src/ngx_http_lua_module.c#L1294) leads to redundant large memory allocation.
