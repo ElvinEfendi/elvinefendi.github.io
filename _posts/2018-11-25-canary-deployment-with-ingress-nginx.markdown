@@ -6,6 +6,8 @@ comments: true
 tags: ingress, nginx, kubernetes, IngressNGINX, canary, deployment, Blue/Green, A/B testing
 ---
 
+_Note_: Make sure you're using ingress-nginx not older than version `0.22.0`. The initial implementation of canary feature had serious flaws that got fixed in https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0.
+
 Canary and Blue/Green deployment, A/B testing are all known techniques to safely rollout a new version of service. Most of the times it's required to configure them at load balancer level. [https://thenewstack.io/deployment-strategies](https://thenewstack.io/deployment-strategies) has done good job at explaining what they are.
 
 In this article I'm going to show how ingress-nginx can be used to do canary deployments. But the feature ingress-nginx provides can also be used to do Blue/Green deployment as well as A/B testing.
