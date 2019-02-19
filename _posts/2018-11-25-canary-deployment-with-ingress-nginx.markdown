@@ -281,7 +281,7 @@ Once the new version of your app is ready, you deploy it as blue deployment and 
 steering all traffic away from green deployment to blue. And for the next deployment you can again deploy green and switch the weight back to `0` etc.
 
 ### A/B testing
-This can be achieved using mix of business logic implemented in the backend service and `cookie-by-header` annotation.
+This can be achieved using mix of business logic implemented in the backend service and `cookie-by-cookie` annotation.
 For example let's say you want to show the new version of your app to only users under 30 years old. You can then configure
 
 ```
