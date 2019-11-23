@@ -159,4 +159,4 @@ env:
 
 and change the image to `ingress-nginx-openidc`. Now when you try to access http://example.com:31672/ it should redirect you to Google sign in page. Here's how it looks like for me after I sign in:
 
-![ingress-openidc](../assets/ingress-openidc.png)
+![ingress-openidc](/assets/ingress-openidc.png)
