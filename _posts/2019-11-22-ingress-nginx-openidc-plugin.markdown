@@ -10,7 +10,7 @@ I introduced [MVP version of Lua based plugin system for ingress-nginx ](https:/
 a while ago. Since then I've been meaning to write an article to demonstrate it but could not until now.
 
 ingress-nginx does not support OpenID Connect out of box and there has been many requests for that by the community.
-Therefore in this article I'm going to demonstrate ingress-nginx extensibility by showing how one can add OpenID Connect
+Therefore in this article I'm going to demonstrate ingress-nginx's extensibility by showing how one can add OpenID Connect
 functiontionality to it. This is going to be a tutorial like article so make sure you follow every step in order to acheive
 a complete, working integration.
 
@@ -77,7 +77,7 @@ Also this is a good place to note down the port ingress-nginx is running behind:
 | ingress-nginx | ingress-nginx | http://192.168.99.108:31672    |
 ```
 
-For me the HTTP port is `31672`, and therefore the :endpoint I'll be using is `http://example.com:31672`.
+For me the HTTP port is `31672`, and therefore the endpoint I'll be using is `http://example.com:31672`.
 
 At this point you should be able to access http://example.com:31672 in your browser.
 
@@ -90,11 +90,11 @@ placed in `/etc/nginx/plugins/<plugin name>/`. Every plugin has to have a `main.
 defines the Nginx phases you want to run your custom logic in. For example if you want to run a custom logic in `rewrite` phase
 you need to declare a global function called `rewrite`, [here is an example](https://github.com/ElvinEfendi/ingress-nginx-openidc/blob/195b13476039bb9dc39ad8b418a584d1753dd659/rootfs/etc/nginx/lua/plugins/openidc/main.lua#L17).
 Currently following phases are supported: `init`, `rewrite`, `header`, `log`. Once the plugin is ready the final step is to enable
-it in `nginx.tmpl`, [here's an example](https://github.com/ElvinEfendi/ingress-nginx-openidc/blob/195b13476039bb9dc39ad8b418a584d1753dd659/rootfs/etc/nginx/template/nginx.tmpl#L121). `plugins.init({})` receives array of plugin names as an argument and then takes care of safely loading them. However note that this plugin system is not meant for untrusted code as they are not run in a sandbox.
+it in `nginx.tmpl`, [here's an example](https://github.com/ElvinEfendi/ingress-nginx-openidc/blob/195b13476039bb9dc39ad8b418a584d1753dd659/rootfs/etc/nginx/template/nginx.tmpl#L121). `plugins.init({})` receives array of plugin names as an argument and then takes care of safely loading (and later on executing in defined phases) them. However note that this plugin system is not meant for untrusted code as they are not run in a sandbox.
 In case your plugin requires third party lua libraries, you can install them in the custom `Dockerfile`, [here's an example]( https://github.com/ElvinEfendi/ingress-nginx-openidc/blob/195b13476039bb9dc39ad8b418a584d1753dd659/rootfs/Dockerfile#L5). Sometimes a plugin might also require additional Nginx configuration, this can be done in the custom `nginx.tmpl`, [here's an example](https://github.com/ElvinEfendi/ingress-nginx-openidc/blob/195b13476039bb9dc39ad8b418a584d1753dd659/rootfs/etc/nginx/template/nginx.tmpl#L53).
 
 Now let's adjust that plugin for this demonstration and show full flow. To do so we will need client id and client secret. I'm using
-Google as an authentication provider in this tutorial. https://developers.google.com/identity/protocols/OpenIDConnect shows how you can
+Google as an authentication provider in this tutorial. [https://developers.google.com/identity/protocols/OpenIDConnect](https://developers.google.com/identity/protocols/OpenIDConnect) shows how you can
 obtain them. When creating OAuth client ID in Google Console make sure you choose "Web Application" as an application type and
 set `http://example.com:31672` in "Authorized JavaScript origins" and `http://example.com:31672/redirect_uri` in "Authorized redirect URIs". Also you will need to set `example.com` in "Authorized Domains" in "OAuth consent screen" page. If you have different port for
 ingress-nginx in minikube, adjust the entries accordingly.
@@ -106,7 +106,7 @@ corresponding credentials you obtained from Google. After the create the secret:
 kubectl create secret generic openidc-credentials --from-file client_id --from-file client_secret -n ingress-nginx --context minikube
 ```
 
-Make sure the files does not have newline character.
+Make sure the files does not have newline character (it's safer to use something like `echo -n "<client id/secret>" > client_id/secret`).
 
 Next make the following change to the barebone plugin:
 
@@ -160,3 +160,5 @@ env:
 and change the image to `ingress-nginx-openidc`. Now when you try to access http://example.com:31672/ it should redirect you to Google sign in page. Here's how it looks like for me after I sign in:
 
 ![ingress-openidc](/assets/ingress-openidc.png)
+
+This is only one example showing how to extend ingress-nginx's functionalities using Lua based plugin system. You can configure any custom logic, restrict it to certain backends, frontends etc. In this tutorial I did not talk about how to write tests for the plugin, but it is supported. You can consider this as a homework and make a pull request to [https://github.com/ElvinEfendi/ingress-nginx-openidc](https://github.com/ElvinEfendi/ingress-nginx-openidc) adding tests.
