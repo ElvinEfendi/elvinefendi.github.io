@@ -6,7 +6,7 @@ comments: true
 tags: ruby, net-http, faraday, tls, sni
 ---
 
-The way Ruby's net/http library exposes customization of SNI is quite counterintuitive at the first sight.
+The way Ruby's net/http library exposes customization of SNI ([Sever Name Indication](https://en.wikipedia.org/wiki/Server_Name_Indication)) is quite counterintuitive at the first sight.
 It is also pretty much not documented. I discovered it through [this closed feature request](https://bugs.ruby-lang.org/issues/15215) 
 and [the relevant source code](https://bugs.ruby-lang.org/issues/5180).
 
