@@ -11,7 +11,7 @@ One can now extend Envoy using Webassembly (WASM). It took me some time to put t
 pieces together as the plugin system is under active development and public
 examples and documentation can become obselete any time (yes, this one too).
 I found the [integration test data](https://github.com/envoyproxy/envoy/tree/master/test/extensions/filters/http/wasm/test_data)
-to be the most helpful and up-to-date.
+to be the most helpful and up-to-date. You can read more about the new system [here](https://github.com/proxy-wasm/spec/blob/master/docs/WebAssembly-in-Envoy.md).
 
 In order to experiment with this new plugin system I built an Envoy WASM plugin
 that for a given request:
