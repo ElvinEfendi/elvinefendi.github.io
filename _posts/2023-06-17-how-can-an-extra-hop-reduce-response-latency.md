@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How can introducing a new request hop can reduce overall latency?"
+title: "How can introducing a new request hop reduce the overall latency?"
 date: 2023-06-17
 comments: true
 tags: reverse proxy, latency, performance, cdn
